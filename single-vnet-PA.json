@@ -111,7 +111,7 @@
         },
         "Password": {
             "type": "securestring",
-            "defaultValue": "P@loAlt0123",
+            "defaultValue": "P@l0Alto123456",
             "maxLength": 31,
             "metadata": {
                 "description": "Password to the privileged account used to ssh and login to the PanOS web portal."
