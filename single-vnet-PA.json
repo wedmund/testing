@@ -227,7 +227,7 @@
             "name": "[parameters('virtualNetworkName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2017-10-01",
-            "condition": "equals(parameters('vnetNewOrExisting'), 'new')]",
+            "condition": "[equals(parameters('vnetNewOrExisting'), 'new')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups',variables('managementNSGName'))]"
             ],
