@@ -234,12 +234,11 @@
             ],
             "location": "[resourceGroup().location]",
             "properties": {
-                "addressSpace": [
+                "addressSpace": {
                     "addressPrefixes": [
                         "[variables('virtualNetworkAddressPrefix')]"
                     ]
-                ],
-                "subnets": "[variables('subnets')]"
+                }
             }
         },
         {
