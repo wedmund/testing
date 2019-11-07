@@ -229,12 +229,12 @@
             "apiVersion": "2017-10-01",
             "condition": "[equals(parameters('vnetNewOrExisting'), 'new')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups',variables('managementNSGName'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('managementNSGName'))]"
             ],
             "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": [
-                    "[parameters('virtualNetworkAddressPrefixes')[0]]"
+                    "addressPrefixes": "[parameters('virtualNetworkAddressPrefix')]"           
                 ],
                 "subnets": "[variables('subnets')]"
             }
