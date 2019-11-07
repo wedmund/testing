@@ -48,12 +48,12 @@
                 "description": "Number of virtual Palo Alto appliances you wish to deploy."
             }
         },
-        "VNetName": {
+        "virtualNetworkName": {
             "type": "string",
-            "defaultValue": "Test-VNET",
             "metadata": {
-                "description": "The name of the virtual network the Palo Alto devices should be deployed to."
-            }
+                "description": "Name of the Virtual Network (VNET)"
+            },
+            "defaultValue": "Test-VNET"
         },
         "VNetRG": {
             "type": "string",
@@ -224,7 +224,7 @@
             }
         },
         {
-            "name": "[parameters('vNetName')]",
+            "name": "[parameters('virtualNetworkName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2017-10-01",
             "condition": "equals(parameters('vnetNewOrExisting'), 'new')]",
