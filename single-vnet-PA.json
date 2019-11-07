@@ -73,9 +73,9 @@
                 "description": "Select whether to use a new or existing Virtual Network, specified by virtualNetowrkName"
             }
         },
-        "virtualNetworkAddressPrefix": {
-            "type": "string",
-            "defaultValue": "10.4.0.0/16",
+        "virtualNetworkAddressPrefixes": {
+            "type": "array",
+            "defaultValue": "[array('10.4.0.0/16')]",
             "metadata": {
                 "description": "CIDR for Virtual Network"
             }
@@ -149,6 +149,7 @@
         "managementNSGName": "[concat(parameters('envPrefix'),'-Management-NSG')]",
         "untrustLBName": "[concat(parameters('envPrefix'),'-Untrust-LB')]",
         "trustLBName": "[concat(parameters('envPrefix'),'-Trust-LB')]",
+        "virtualNetworkAddressPrefix": "[parameters('virtualNetworkAddressPrefixes')[0]]",
         "subnets": [
             {
                 "name": "[parameters('managementSubnetName')]",
@@ -234,7 +235,9 @@
             "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": [
-                    "addressPrefixes": "[parameters('virtualNetworkAddressPrefix')]"           
+                    "addressPrefixes": [
+                        "[variables('virtualNetworkAddressPrefix')]"
+                    ]
                 ],
                 "subnets": "[variables('subnets')]"
             }
